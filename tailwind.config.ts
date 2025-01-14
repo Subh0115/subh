@@ -33,6 +33,11 @@ export default {
       textColor: {
         foreground: "hsl(var(--foreground))",
       },
+      backgroundColor: {
+        background: "hsl(var(--background))",
+        primary: "hsl(var(--primary))",
+        secondary: "hsl(var(--secondary))",
+      },
       fontFamily: {
         sans: ["SF Pro Display", "system-ui", "sans-serif"],
       },

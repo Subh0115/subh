@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-white py-16 px-6">
+    <footer className="bg-primary text-white dark:bg-black py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {footerSections.map((section) => (
@@ -45,7 +45,7 @@ const Footer = () => {
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/70 text-sm">
-            © 2024 BankApp. All rights reserved.
+            © 2024 BtrackiFiS. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
             <Link to="#" className="text-white/70 hover:text-white transition-colors">
