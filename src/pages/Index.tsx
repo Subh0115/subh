@@ -15,21 +15,21 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary mb-6">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary dark:text-white mb-6">
               Change the bank account
               <br />
               <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
                 you use
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
+            <p className="mx-auto max-w-2xl text-lg text-secondary dark:text-gray-300 mb-8">
               Experience banking reimagined. Simple, secure, and designed for the modern world.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors dark:bg-white dark:text-black">
                 Get Started
               </button>
-              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2">
+              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2 text-primary dark:text-white">
                 Learn More <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -47,9 +47,9 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="py-24 bg-surface px-6 lg:px-8">
+        <section className="py-24 bg-surface dark:bg-black/20 px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Features designed for you</h2>
+            <h2 className="text-3xl font-bold text-center mb-16 text-primary dark:text-white">Features designed for you</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -70,11 +70,11 @@ const Index = () => {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent transition-colors"
+                  className="p-6 rounded-2xl bg-background dark:bg-black/40 border border-border dark:border-white/10 hover:border-accent transition-colors"
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-secondary">{feature.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-primary dark:text-white">{feature.title}</h3>
+                  <p className="text-secondary dark:text-gray-300">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -84,7 +84,7 @@ const Index = () => {
         {/* FAQ Section */}
         <section className="py-24 px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-center mb-16 text-primary dark:text-white">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {[
                 {
@@ -102,10 +102,10 @@ const Index = () => {
               ].map((faq, index) => (
                 <div
                   key={index}
-                  className="border border-border rounded-lg overflow-hidden"
+                  className="border border-border dark:border-white/10 rounded-lg overflow-hidden dark:bg-black/40"
                 >
                   <button
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-background/50"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-background/50 text-primary dark:text-white"
                     onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
                   >
                     <span className="font-medium">{faq.question}</span>
@@ -116,8 +116,8 @@ const Index = () => {
                     />
                   </button>
                   {activeAccordion === index && (
-                    <div className="px-6 py-4 bg-background/50">
-                      <p className="text-secondary">{faq.answer}</p>
+                    <div className="px-6 py-4 bg-background/50 dark:bg-black/20">
+                      <p className="text-secondary dark:text-gray-300">{faq.answer}</p>
                     </div>
                   )}
                 </div>
@@ -127,13 +127,13 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-primary text-white px-6 lg:px-8">
+        <section className="py-24 bg-primary dark:bg-black text-white px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="text-3xl sm:text-5xl font-bold mb-8">Ready to get started?</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied customers who have already made the switch.
             </p>
-            <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
+            <button className="px-8 py-4 bg-accent text-primary dark:text-black rounded-full font-semibold hover:bg-accent/90 transition-colors">
               Create Account
             </button>
           </div>
