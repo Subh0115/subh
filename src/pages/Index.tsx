@@ -15,14 +15,14 @@ const Index = () => {
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl text-center">
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary dark:text-white mb-6">
-              Smart Banking for
+              BtrackiFiS
               <br />
               <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
-                Smarter Finance
+                Your Financial Companion
               </span>
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-secondary dark:text-gray-300 mb-8">
-              Track expenses, manage investments, and grow your wealth with our comprehensive financial management tools.
+              Better tracking for smarter financial success. Experience a new way to manage, monitor, and maximize your money.
             </p>
             <div className="flex justify-center gap-4">
               <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors dark:bg-white dark:text-black">
