@@ -40,7 +40,7 @@ const Index = () => {
               <img
                 src="https://antimetal.com/images/hero/preview.png"
                 alt="Banking Dashboard"
-                className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto dark:opacity-90 dark:contrast-125 dark:brightness-110"
+                className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto dark:invert-0 dark:brightness-100"
               />
             </div>
           </div>
