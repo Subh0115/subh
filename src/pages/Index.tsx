@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronDown, PieChart, LineChart, Wallet } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -25,9 +26,11 @@ const Index = () => {
               Better tracking for smarter financial success. Experience a new way to manage, monitor, and maximize your money.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
-                Open Account
-              </button>
+              <Link to="/signup">
+                <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+                  Open Account
+                </button>
+              </Link>
               <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2 text-primary">
                 View Demo <ArrowRight className="w-4 h-4" />
               </button>
@@ -139,9 +142,11 @@ const Index = () => {
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Join thousands of users who are already managing their money smarter with BtrackiFiS.
             </p>
-            <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
-              Create Free Account
-            </button>
+            <Link to="/signup">
+              <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
+                Create Free Account
+              </button>
+            </Link>
           </div>
         </section>
       </main>
