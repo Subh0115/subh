@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown, PieChart, LineChart, Wallet, Shield } from "lucide-react";
+import { ArrowRight, ChevronDown, PieChart, LineChart, Wallet } from "lucide-react";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -14,21 +14,21 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative overflow-hidden px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary dark:text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-primary mb-6">
               BtrackiFiS
               <br />
               <span className="bg-gradient-to-r from-[#9EE755] to-[#CFDD3C] bg-clip-text text-transparent">
                 Your Financial Companion
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-secondary dark:text-gray-300 mb-8">
+            <p className="mx-auto max-w-2xl text-lg text-secondary mb-8">
               Better tracking for smarter financial success. Experience a new way to manage, monitor, and maximize your money.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors dark:bg-white dark:text-black">
+              <button className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
                 Open Account
               </button>
-              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2 text-primary dark:text-white">
+              <button className="px-6 py-3 glass rounded-full hover:bg-white/20 transition-colors flex items-center gap-2 text-primary">
                 View Demo <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -40,16 +40,16 @@ const Index = () => {
               <img
                 src="https://antimetal.com/images/hero/preview.png"
                 alt="Banking Dashboard"
-                className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto dark:invert-0 dark:brightness-100"
+                className="rounded-3xl shadow-2xl max-w-[90%] w-auto h-auto"
               />
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="py-24 bg-surface dark:bg-black/20 px-6 lg:px-8">
+        <section className="py-24 bg-surface px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-center mb-16 text-primary dark:text-white">
+            <h2 className="text-3xl font-bold text-center mb-16 text-primary">
               Powerful Financial Tools
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -72,13 +72,13 @@ const Index = () => {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl bg-background dark:bg-black/40 border border-border dark:border-white/10 hover:border-accent transition-colors"
+                  className="p-6 rounded-2xl bg-background border border-border hover:border-accent transition-colors"
                 >
-                  <div className="text-primary dark:text-white mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary dark:text-white">
+                  <div className="text-primary mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-primary">
                     {feature.title}
                   </h3>
-                  <p className="text-secondary dark:text-gray-300">{feature.description}</p>
+                  <p className="text-secondary">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -88,7 +88,7 @@ const Index = () => {
         {/* FAQ Section */}
         <section className="py-24 px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-center mb-16 text-primary dark:text-white">
+            <h2 className="text-3xl font-bold text-center mb-16 text-primary">
               Common Questions
             </h2>
             <div className="space-y-4">
@@ -108,10 +108,10 @@ const Index = () => {
               ].map((faq, index) => (
                 <div
                   key={index}
-                  className="border border-border dark:border-white/10 rounded-lg overflow-hidden dark:bg-black/40"
+                  className="border border-border rounded-lg overflow-hidden"
                 >
                   <button
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-background/50 text-primary dark:text-white"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-background/50 text-primary"
                     onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
                   >
                     <span className="font-medium">{faq.question}</span>
@@ -122,8 +122,8 @@ const Index = () => {
                     />
                   </button>
                   {activeAccordion === index && (
-                    <div className="px-6 py-4 bg-background/50 dark:bg-black/20">
-                      <p className="text-secondary dark:text-gray-300">{faq.answer}</p>
+                    <div className="px-6 py-4 bg-background/50">
+                      <p className="text-secondary">{faq.answer}</p>
                     </div>
                   )}
                 </div>
@@ -133,13 +133,13 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-primary dark:bg-black text-white px-6 lg:px-8">
+        <section className="py-24 bg-primary text-white px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="text-3xl sm:text-5xl font-bold mb-8">Ready to take control of your finances?</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Join thousands of users who are already managing their money smarter with BtrackiFiS.
             </p>
-            <button className="px-8 py-4 bg-accent text-primary dark:text-black rounded-full font-semibold hover:bg-accent/90 transition-colors">
+            <button className="px-8 py-4 bg-accent text-primary rounded-full font-semibold hover:bg-accent/90 transition-colors">
               Create Free Account
             </button>
           </div>
