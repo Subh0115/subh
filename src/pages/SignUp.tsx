@@ -3,6 +3,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { z } from "zod";
 import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
 import SignUpForm from "@/components/auth/SignUpForm";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -20,17 +21,31 @@ const SignUp = () => {
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log("Sign up values:", values);
-      toast({
-        title: "Success!",
-        description: "Your account has been created.",
+      const { data, error } = await supabase.auth.signUp({
+        email: values.email,
+        password: values.password,
+        options: {
+          data: {
+            firstName: values.firstName,
+            lastName: values.lastName,
+          },
+        },
       });
-      navigate("/signin");
-    } catch (error) {
+
+      if (error) throw error;
+
+      if (data) {
+        toast({
+          title: "Success!",
+          description: "Your account has been created. Please check your email to verify your account.",
+        });
+        navigate("/signin");
+      }
+    } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error.message || "Something went wrong. Please try again.",
       });
     }
   };

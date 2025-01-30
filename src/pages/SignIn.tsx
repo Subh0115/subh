@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -36,18 +37,25 @@ const SignIn = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     try {
-      // Here you would typically handle authentication
-      console.log("Sign in values:", values);
-      toast({
-        title: "Success!",
-        description: "You have successfully signed in.",
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
       });
-      navigate("/");
-    } catch (error) {
+
+      if (error) throw error;
+
+      if (data) {
+        toast({
+          title: "Success!",
+          description: "You have successfully signed in.",
+        });
+        navigate("/");
+      }
+    } catch (error: any) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error.message || "Something went wrong. Please try again.",
       });
     } finally {
       setIsLoading(false);
