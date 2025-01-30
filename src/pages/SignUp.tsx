@@ -64,13 +64,15 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col-reverse md:flex-row">
+    <div className="min-h-screen flex flex-col-reverse md:flex-row bg-background">
       {/* Form Side */}
-      <div className="w-full md:w-1/2 px-4 py-8 md:px-12 lg:px-20 flex flex-col justify-center">
+      <div className="w-full md:w-1/2 px-4 py-8 md:px-12 lg:px-20 flex flex-col justify-center animate-fade-in">
         <div className="max-w-md w-full mx-auto space-y-8">
-          <div className="text-center md:text-left">
-            <h2 className="text-3xl font-bold tracking-tight">Create Account</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+          <div className="text-center md:text-left space-y-2">
+            <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Create Account
+            </h2>
+            <p className="text-sm text-muted-foreground">
               Join BtrackiFiS and start managing your finances
             </p>
           </div>
@@ -79,21 +81,24 @@ const SignUp = () => {
           <div className="grid grid-cols-1 gap-4">
             <Button
               variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: "0.1s" }}
             >
               <Github className="h-5 w-5" />
               Continue with Github
             </Button>
             <Button
               variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
             >
               <Apple className="h-5 w-5" />
               Continue with Apple
             </Button>
             <Button
               variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
+              style={{ animationDelay: "0.3s" }}
             >
               <Facebook className="h-5 w-5" />
               Continue with Facebook
@@ -106,13 +111,13 @@ const SignUp = () => {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                Or continue with
+                Or continue with email
               </span>
             </div>
           </div>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 animate-fade-in">
               <div className="grid grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -121,7 +126,11 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>First Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John" {...field} />
+                        <Input 
+                          placeholder="John" 
+                          {...field} 
+                          className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -135,7 +144,11 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>Last Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Doe" {...field} />
+                        <Input 
+                          placeholder="Doe" 
+                          {...field} 
+                          className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -154,6 +167,7 @@ const SignUp = () => {
                         type="email"
                         placeholder="john.doe@example.com"
                         {...field}
+                        className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
                       />
                     </FormControl>
                     <FormMessage />
@@ -172,6 +186,7 @@ const SignUp = () => {
                         type="password"
                         placeholder="Create a password"
                         {...field}
+                        className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
                       />
                     </FormControl>
                     <FormMessage />
@@ -188,6 +203,7 @@ const SignUp = () => {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className="data-[state=checked]:bg-purple-600"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
@@ -195,14 +211,14 @@ const SignUp = () => {
                         I agree to the{" "}
                         <Link
                           to="/terms"
-                          className="text-primary hover:underline"
+                          className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
                         >
                           terms of service
                         </Link>{" "}
                         and{" "}
                         <Link
                           to="/privacy"
-                          className="text-primary hover:underline"
+                          className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
                         >
                           privacy policy
                         </Link>
@@ -214,7 +230,7 @@ const SignUp = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white transition-all duration-300"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:scale-[1.02]"
                 disabled={isLoading}
               >
                 {isLoading ? "Creating account..." : "Create account"}
@@ -226,7 +242,7 @@ const SignUp = () => {
             Already have an account?{" "}
             <Link
               to="/signin"
-              className="font-semibold text-primary hover:underline"
+              className="font-semibold text-purple-600 hover:text-purple-700 hover:underline transition-colors"
             >
               Sign in
             </Link>
@@ -236,7 +252,7 @@ const SignUp = () => {
 
       {/* Image Side */}
       <div className="w-full md:w-1/2 bg-[#F2FCE2] flex items-center justify-center p-8">
-        <div className="max-w-md text-center">
+        <div className="max-w-md text-center space-y-6">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Welcome to BtrackiFiS
           </h1>
