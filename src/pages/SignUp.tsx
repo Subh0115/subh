@@ -1,21 +1,8 @@
-import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/components/ui/use-toast";
-import { Apple, Facebook, Github, Mail } from "lucide-react";
+import { z } from "zod";
+import SocialLoginButtons from "@/components/auth/SocialLoginButtons";
+import SignUpForm from "@/components/auth/SignUpForm";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -30,21 +17,8 @@ const formSchema = z.object({
 const SignUp = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      terms: false,
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsLoading(true);
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       console.log("Sign up values:", values);
       toast({
@@ -58,8 +32,6 @@ const SignUp = () => {
         title: "Error",
         description: "Something went wrong. Please try again.",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -77,33 +49,7 @@ const SignUp = () => {
             </p>
           </div>
 
-          {/* Social Login Buttons */}
-          <div className="grid grid-cols-1 gap-4">
-            <Button
-              variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <Github className="h-5 w-5" />
-              Continue with Github
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <Apple className="h-5 w-5" />
-              Continue with Apple
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full flex items-center justify-center gap-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Facebook className="h-5 w-5" />
-              Continue with Facebook
-            </Button>
-          </div>
+          <SocialLoginButtons />
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
@@ -116,127 +62,7 @@ const SignUp = () => {
             </div>
           </div>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 animate-fade-in">
-              <div className="grid grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>First Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="John" 
-                          {...field} 
-                          className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Last Name</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Doe" 
-                          {...field} 
-                          className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="john.doe@example.com"
-                        {...field}
-                        className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="password"
-                        placeholder="Create a password"
-                        {...field}
-                        className="transition-all duration-300 focus:ring-2 focus:ring-purple-400"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="terms"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                        className="data-[state=checked]:bg-purple-600"
-                      />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>
-                        I agree to the{" "}
-                        <Link
-                          to="/terms"
-                          className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
-                        >
-                          terms of service
-                        </Link>{" "}
-                        and{" "}
-                        <Link
-                          to="/privacy"
-                          className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
-                        >
-                          privacy policy
-                        </Link>
-                      </FormLabel>
-                    </div>
-                  </FormItem>
-                )}
-              />
-
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:scale-[1.02]"
-                disabled={isLoading}
-              >
-                {isLoading ? "Creating account..." : "Create account"}
-              </Button>
-            </form>
-          </Form>
+          <SignUpForm onSubmit={handleSubmit} />
 
           <p className="text-center text-sm">
             Already have an account?{" "}
