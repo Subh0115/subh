@@ -38,6 +38,13 @@
   .glass {
     @apply bg-white/10 backdrop-blur-lg border border-white/20;
   }
+
+  /* Add a subtle grid pattern to the background */
+  .bg-grid-black {
+    background-image: linear-gradient(to right, rgb(0 0 0 / 5%) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 0 0 / 5%) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 }
 
 .animate-float {
