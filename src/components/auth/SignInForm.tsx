@@ -24,6 +24,7 @@ const formSchema = z.object({
 
 const SignInForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [resendingEmail, setResendingEmail] = useState(false);
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -33,6 +34,28 @@ const SignInForm = () => {
       password: "",
     },
   });
+
+  const handleResendConfirmation = async (email: string) => {
+    setResendingEmail(true);
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: email,
+      });
+      
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Confirmation email resent. Please check your inbox.", {
+          duration: 5000,
+        });
+      }
+    } catch (error) {
+      toast.error("Failed to resend confirmation email. Please try again.");
+    } finally {
+      setResendingEmail(false);
+    }
+  };
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
@@ -45,9 +68,19 @@ const SignInForm = () => {
       if (error) {
         if (error.message === "Email not confirmed") {
           toast.error(
-            "Please confirm your email address. Check your inbox for a confirmation link.",
+            <div className="flex flex-col gap-2">
+              <p>Please confirm your email address to sign in.</p>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={resendingEmail}
+                onClick={() => handleResendConfirmation(values.email)}
+              >
+                {resendingEmail ? "Sending..." : "Resend confirmation email"}
+              </Button>
+            </div>,
             {
-              duration: 5000,
+              duration: 10000,
             }
           );
         } else {
