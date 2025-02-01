@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bell, List, CreditCard, CheckSquare, ArrowLeftRight, FileText, Globe, ClipboardCheck } from 'lucide-react';
+import { Search, Bell, List, CreditCard, CheckSquare, ArrowLeftRight, FileText, Globe, ClipboardCheck, DollarSign, Wallet, PieChart } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 
 const NewDashboard = () => {
@@ -9,34 +9,34 @@ const NewDashboard = () => {
         {/* Header */}
         <header className="grid grid-cols-[175px_1fr_400px] gap-16 items-end border-b border-[#313131] p-4">
           <div className="logo flex items-center">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <img src="https://assets.codepen.io/285131/almeria-logo.svg" alt="logo" />
+            <div className="w-8 h-8 bg-gradient-to-r from-[#45ffbc] to-[#e3ffa8] rounded-lg flex items-center justify-center">
+              <span className="text-black font-bold">B</span>
             </div>
             <div className="ml-3 flex flex-col">
-              <span className="text-white">BtrackiFiS</span>
-              <span className="text-[#969593]">NeoBank</span>
+              <span className="text-white font-bold">BtrackiFiS</span>
+              <span className="text-[#969593] text-sm">Your Financial Companion</span>
             </div>
           </div>
 
           {/* Navigation Tabs */}
           <div className="hidden lg:block">
             <nav className="flex justify-between text-[#969593] border-b border-[#313131]">
-              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-white transition-colors">
+              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-[#45ffbc] transition-colors">
                 Overview
               </a>
-              <a href="#" className="py-4 border-t-2 border-white text-white">
+              <a href="#" className="py-4 border-t-2 border-[#45ffbc] text-white">
                 Payments
               </a>
-              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-white transition-colors">
+              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-[#45ffbc] transition-colors">
                 Cards
               </a>
-              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-white transition-colors">
+              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-[#45ffbc] transition-colors">
                 Account
               </a>
-              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-white transition-colors">
+              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-[#45ffbc] transition-colors">
                 System
               </a>
-              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-white transition-colors">
+              <a href="#" className="py-4 border-t-2 border-transparent hover:text-white hover:border-[#45ffbc] transition-colors">
                 Business
               </a>
             </nav>
@@ -44,18 +44,19 @@ const NewDashboard = () => {
 
           {/* Header Actions */}
           <div className="hidden lg:flex items-center justify-end">
-            <button className="flex items-center text-[#969593] hover:text-white transition-colors">
+            <button className="flex items-center text-[#969593] hover:text-white transition-colors group">
               <span className="mr-6">Matheo Peterson</span>
-              <span className="w-[42px] h-[42px] rounded-full overflow-hidden">
+              <span className="w-[42px] h-[42px] rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-[#45ffbc] transition-all">
                 <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" alt="avatar" className="w-full h-full object-cover" />
               </span>
             </button>
             <div className="flex items-center ml-8 pl-8 border-l border-[#313131]">
-              <button className="w-[42px] h-[42px] flex items-center justify-center border border-[#969593] rounded-full hover:bg-[#313131] transition-colors mr-4">
+              <button className="w-[42px] h-[42px] flex items-center justify-center border border-[#969593] rounded-full hover:bg-[#45ffbc] hover:border-[#45ffbc] hover:text-black transition-all mr-4">
                 <Search className="w-5 h-5" />
               </button>
-              <button className="w-[42px] h-[42px] flex items-center justify-center border border-[#969593] rounded-full hover:bg-[#313131] transition-colors">
+              <button className="w-[42px] h-[42px] flex items-center justify-center border border-[#969593] rounded-full hover:bg-[#45ffbc] hover:border-[#45ffbc] hover:text-black transition-all relative">
                 <Bell className="w-5 h-5" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-xs flex items-center justify-center">3</span>
               </button>
             </div>
           </div>
@@ -71,39 +72,39 @@ const NewDashboard = () => {
           {/* Sidebar Navigation */}
           <div className="hidden lg:flex flex-col justify-between h-full">
             <nav className="flex flex-col text-[#969593]">
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
-                <CreditCard className="w-5 h-5 mr-3" />
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
+                <PieChart className="w-5 h-5 mr-3" />
                 <span>Dashboard</span>
               </a>
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
                 <CheckSquare className="w-5 h-5 mr-3" />
                 <span>Scheduled</span>
               </a>
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
                 <ArrowLeftRight className="w-5 h-5 mr-3" />
                 <span>Transfers</span>
               </a>
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
                 <FileText className="w-5 h-5 mr-3" />
                 <span>Templates</span>
               </a>
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
                 <Globe className="w-5 h-5 mr-3" />
-                <span>SWIFT</span>
+                <span>International</span>
               </a>
-              <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
-                <ClipboardCheck className="w-5 h-5 mr-3" />
+              <a href="#" className="flex items-center mb-5 hover:text-[#45ffbc] hover:translate-x-1 transition-all">
+                <Wallet className="w-5 h-5 mr-3" />
                 <span>Exchange</span>
               </a>
             </nav>
 
             <footer className="mt-auto pt-8 border-t border-[#313131]">
-              <h1 className="text-2xl flex items-start">
+              <h1 className="text-2xl flex items-start font-bold bg-gradient-to-r from-[#45ffbc] to-[#e3ffa8] text-transparent bg-clip-text">
                 BtrackiFiS
                 <small className="text-sm ml-1">©</small>
               </h1>
               <div className="mt-4 text-xs text-[#969593]">
-                BtrackiFiS ©<br />
+                Your Financial Companion<br />
                 All Rights Reserved 2024
               </div>
             </footer>
@@ -130,25 +131,25 @@ const NewDashboard = () => {
 const ServiceSection = () => {
   return (
     <section className="mb-10">
-      <h2 className="text-2xl font-semibold mb-5">Service</h2>
+      <h2 className="text-2xl font-bold mb-5 bg-gradient-to-r from-[#45ffbc] to-[#e3ffa8] text-transparent bg-clip-text">Financial Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ServiceCard
+          icon={<DollarSign className="w-8 h-8" />}
+          title="Investments"
+          subtitle="Track & Manage"
+          bgColor="bg-gradient-to-br from-[#45ffbc] to-[#e3ffa8]"
+        />
+        <ServiceCard
+          icon={<Wallet className="w-8 h-8" />}
+          title="Savings"
+          subtitle="Goals & Plans"
+          bgColor="bg-gradient-to-br from-[#e3ffa8] to-[#45ffbc]"
+        />
+        <ServiceCard
           icon={<CreditCard className="w-8 h-8" />}
-          title="Electricity"
-          subtitle="UrkEnergo LTD."
-          bgColor="bg-[#e3ffa8]"
-        />
-        <ServiceCard
-          icon={<Bell className="w-8 h-8" />}
-          title="Heating Gas"
-          subtitle="Gazprom UA"
-          bgColor="bg-[#45ffbc]"
-        />
-        <ServiceCard
-          icon={<FileText className="w-8 h-8" />}
-          title="Tax online"
-          subtitle="Kharkov 62 str."
-          bgColor="bg-[#f1f1f1]"
+          title="Cards"
+          subtitle="Manage & Control"
+          bgColor="bg-gradient-to-br from-[#45ffbc] to-[#8B5CF6]"
         />
       </div>
     </section>

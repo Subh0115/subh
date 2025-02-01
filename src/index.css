@@ -39,14 +39,32 @@
     @apply bg-white/10 backdrop-blur-lg border border-white/20;
   }
 
-  /* Add a subtle grid pattern to the background */
   .bg-grid-black {
     background-image: linear-gradient(to right, rgb(0 0 0 / 5%) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(0 0 0 / 5%) 1px, transparent 1px);
     background-size: 24px 24px;
   }
-}
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#1f1f1f];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#45ffbc] rounded-full;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#45ffbc] to-[#e3ffa8] text-transparent bg-clip-text;
+  }
+
+  /* Card Hover Effects */
+  .hover-card {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#45ffbc]/20;
+  }
 }
