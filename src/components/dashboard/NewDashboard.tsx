@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bell, List, CreditCard, CheckSquare, ArrowLeftRight, FileText, Globe, ClipboardText } from 'lucide-react';
+import { Search, Bell, List, CreditCard, CheckSquare, ArrowLeftRight, FileText, Globe, ClipboardCheck } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
 
 const NewDashboard = () => {
@@ -92,7 +92,7 @@ const NewDashboard = () => {
                 <span>SWIFT</span>
               </a>
               <a href="#" className="flex items-center mb-5 hover:text-white hover:translate-x-1 transition-all">
-                <ClipboardText className="w-5 h-5 mr-3" />
+                <ClipboardCheck className="w-5 h-5 mr-3" />
                 <span>Exchange</span>
               </a>
             </nav>
