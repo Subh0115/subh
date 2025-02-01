@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import SocialLoginButtons from "./SocialLoginButtons";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -42,12 +43,23 @@ const SignInForm = () => {
       });
 
       if (error) {
-        throw error;
+        if (error.message === "Email not confirmed") {
+          toast.error(
+            "Please confirm your email address. Check your inbox for a confirmation link.",
+            {
+              duration: 5000,
+            }
+          );
+        } else {
+          toast.error(error.message);
+        }
+        return;
       }
 
       navigate("/dashboard");
     } catch (error) {
       console.error("Error signing in:", error);
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }
