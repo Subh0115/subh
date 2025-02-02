@@ -61,15 +61,15 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black">First Name</FormLabel>
+                <FormLabel className="text-foreground">First Name</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="John" 
                     {...field} 
-                    className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                    className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-destructive" />
               </FormItem>
             )}
           />
@@ -79,15 +79,15 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black">Last Name</FormLabel>
+                <FormLabel className="text-foreground">Last Name</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Doe" 
                     {...field} 
-                    className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                    className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-destructive" />
               </FormItem>
             )}
           />
@@ -98,16 +98,16 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-black">Email</FormLabel>
+              <FormLabel className="text-foreground">Email</FormLabel>
               <FormControl>
                 <Input
                   type="email"
                   placeholder="john.doe@example.com"
                   {...field}
-                  className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                  className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-destructive" />
             </FormItem>
           )}
         />
@@ -117,16 +117,16 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-black">Password</FormLabel>
+              <FormLabel className="text-foreground">Password</FormLabel>
               <FormControl>
                 <Input
                   type="password"
                   placeholder="Create a password"
                   {...field}
-                  className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                  className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-destructive" />
             </FormItem>
           )}
         />
@@ -140,22 +140,22 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
                 <Checkbox
                   checked={field.value}
                   onCheckedChange={field.onChange}
-                  className="data-[state=checked]:bg-purple-600 border-black/20"
+                  className="data-[state=checked]:bg-secondary border-white/20"
                 />
               </FormControl>
               <div className="space-y-1 leading-none">
-                <FormLabel className="text-black">
+                <FormLabel className="text-foreground">
                   I agree to the{" "}
                   <Link
                     to="/terms"
-                    className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+                    className="text-secondary hover:text-accent hover:underline transition-colors"
                   >
                     terms of service
                   </Link>{" "}
                   and{" "}
                   <Link
                     to="/privacy"
-                    className="text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+                    className="text-secondary hover:text-accent hover:underline transition-colors"
                   >
                     privacy policy
                   </Link>
@@ -167,7 +167,7 @@ const SignUpForm = ({ onSubmit }: SignUpFormProps) => {
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:scale-[1.02]"
+          className="w-full bg-gradient-to-r from-secondary to-accent hover:from-secondary/80 hover:to-accent/80 text-foreground transition-all duration-300 transform hover:scale-[1.02] button-glow"
           disabled={isLoading}
         >
           {isLoading ? "Creating account..." : "Create account"}

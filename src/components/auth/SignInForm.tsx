@@ -107,16 +107,16 @@ const SignInForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black">Email</FormLabel>
+                <FormLabel className="text-foreground">Email</FormLabel>
                 <FormControl>
                   <Input
                     type="email"
                     placeholder="john.doe@example.com"
                     {...field}
-                    className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                    className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-destructive" />
               </FormItem>
             )}
           />
@@ -126,16 +126,16 @@ const SignInForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black">Password</FormLabel>
+                <FormLabel className="text-foreground">Password</FormLabel>
                 <FormControl>
                   <Input
                     type="password"
                     placeholder="Enter your password"
                     {...field}
-                    className="border-black/20 focus:border-black transition-all duration-300 text-black placeholder:text-black/50"
+                    className="border-white/20 focus:border-white text-foreground transition-all duration-300 placeholder:text-white/50 bg-surface/50"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-destructive" />
               </FormItem>
             )}
           />
@@ -143,13 +143,13 @@ const SignInForm = () => {
           <div className="flex items-center justify-between">
             <Link
               to="/signup"
-              className="text-sm text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+              className="text-sm text-secondary hover:text-accent hover:underline transition-colors"
             >
               Don't have an account?
             </Link>
             <Link
               to="/forgot-password"
-              className="text-sm text-purple-600 hover:text-purple-700 hover:underline transition-colors"
+              className="text-sm text-secondary hover:text-accent hover:underline transition-colors"
             >
               Forgot password?
             </Link>
@@ -157,7 +157,7 @@ const SignInForm = () => {
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300 transform hover:scale-[1.02]"
+            className="w-full bg-gradient-to-r from-secondary to-accent hover:from-secondary/80 hover:to-accent/80 text-foreground transition-all duration-300 transform hover:scale-[1.02] button-glow"
             disabled={isLoading}
           >
             {isLoading ? "Signing in..." : "Sign in"}
@@ -167,10 +167,10 @@ const SignInForm = () => {
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-black/20"></div>
+          <div className="w-full border-t border-white/20"></div>
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-black/50">Or continue with</span>
+          <span className="bg-background px-2 text-white/50">Or continue with</span>
         </div>
       </div>
 
