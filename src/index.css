@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 60 33% 99%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 5%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 271 76% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 40%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 120 100% 53%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 0 0% 20%;
+    --input: 0 0% 13%;
+    --ring: 271 76% 53%;
     --radius: 0.75rem;
   }
 
@@ -36,12 +36,16 @@
   }
 
   .glass {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
   }
 
-  .bg-grid-black {
-    background-image: linear-gradient(to right, rgb(0 0 0 / 5%) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(0 0 0 / 5%) 1px, transparent 1px);
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-300 hover:border-secondary/50 hover:shadow-lg hover:shadow-secondary/20;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
@@ -51,20 +55,40 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-[#1f1f1f];
+    @apply bg-surface;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-[#45ffbc] rounded-full;
+    @apply bg-secondary rounded-full;
   }
 
   /* Gradient Text */
   .gradient-text {
-    @apply bg-gradient-to-r from-[#45ffbc] to-[#e3ffa8] text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-secondary to-accent text-transparent bg-clip-text;
+  }
+
+  /* Interactive Elements */
+  .interactive-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20;
+  }
+
+  /* Button Styles */
+  .button-glow {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+
+  .button-glow::after {
+    @apply content-[''] absolute inset-0 opacity-0 transition-opacity duration-300 rounded-lg;
+    background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
+    mix-blend-mode: screen;
+  }
+
+  .button-glow:hover::after {
+    @apply opacity-50;
   }
 
   /* Card Hover Effects */
   .hover-card {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#45ffbc]/20;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-secondary/20;
   }
 }
