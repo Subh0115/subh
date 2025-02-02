@@ -34,12 +34,7 @@ export default {
         'gradient-accent': 'linear-gradient(to right, #8A2BE2, #39FF14)',
         'gradient-dark': 'linear-gradient(to bottom, #0D0D0D, #1A1A1A)',
       },
-      fontFamily: {
-        sans: ["-apple-system", "SF Pro Display", "system-ui", "sans-serif"],
-      },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
         "float": "float 6s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "hover-glow": "hover-glow 1s ease-in-out infinite",
@@ -67,9 +62,6 @@ export default {
             boxShadow: "0 0 30px rgba(138, 43, 226, 0.5)",
           },
         },
-      },
-      backdropBlur: {
-        xs: "2px",
       },
     },
   },
